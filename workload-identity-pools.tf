@@ -35,3 +35,8 @@ resource "google_service_account_iam_member" "github_actions_impersonation" {
   role               = "roles/iam.workloadIdentityUser"
   member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_pool.name}/attribute.repository/${var.github_orga}/${var.github_repo}"
 }
+resource "google_service_account_iam_member" "clrun_builder_impersonation" {
+  service_account_id = google_service_account.accounts["sa-p-clr-runner-bffs"].name
+  role               = "roles/iam.workloadIdentityUser"
+  member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_pool.name}/attribute.repository/${var.github_orga}/${var.github_repo_iac}"
+}

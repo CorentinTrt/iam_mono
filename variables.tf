@@ -24,6 +24,14 @@ variable "github_repo" {
   description = "Name of the Github repository"
   type        = string
 }
+variable "github_repo_iam" {
+  description = "Name of the Github repository for IAM"
+  type        = string
+}
+variable "github_repo_iac" {
+  description = "Name of the Github repository for IAC"
+  type        = string
+}
 
 variable "service_accounts" {
   description = "List of service accounts to create"
